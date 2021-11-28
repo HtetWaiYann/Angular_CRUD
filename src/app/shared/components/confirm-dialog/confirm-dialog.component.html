@@ -1,0 +1,13 @@
+<div mat-dialog-content>
+    {{message}}
+</div>
+
+<div mat-dialog-actions align="end">
+    <button type="button" (click)="onDismiss()" class="btn btn-outline-secondary mx-2">
+        Cancel
+    </button>
+    <button type="button" (click)="onConfirm()" class="btn btn-custom" cdkFocusInitial>
+        Ok
+    </button>
+
+</div>

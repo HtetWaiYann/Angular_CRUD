@@ -1,0 +1,8 @@
+<button type="submit" [disabled]="isLoading" *ngIf="isLoading" class="btn btn-custom justify-content-center" [ngStyle]="{'width': width+ '%'}">
+    <span class="spinner-border spinner-border-sm button-spinner" role="status" aria-hidden="true"></span>
+    <span class="mx-1">{{load_button_text}}</span>
+</button>
+
+<button type="submit" *ngIf="!isLoading" class="btn btn-custom justify-content-center" [ngStyle]="{'width': width+ '%'}">
+    {{button_text}}
+</button>

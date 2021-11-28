@@ -1,0 +1,37 @@
+.search-container{
+    width: 250px;
+}
+
+.c-search-input-with-clear {
+    border-right: none !important;
+}
+
+.c-clear-not-focus {
+    display: flex !important;
+    align-items: center !important;
+    border: 1px solid #ced4da !important;
+    border-left: none !important;
+    background-color: white !important;
+    &:hover {
+        color: black !important;
+    }
+}
+
+.c-clear {
+    display: flex !important;
+    align-items: center !important;
+    border: 1px solid var(--main-color) !important;
+    border-left: none !important;
+    background-color: white !important;
+    &:hover {
+        color: black !important;
+    }
+}
+
+::ng-deep .mat-sort-header-indicator{
+    color: white;
+}
+
+::ng-deep .mat-sort-header-stem{
+    color: white;
+}

@@ -1,0 +1,43 @@
+<div class="form-container d-flex justify-content-center align-items-center">
+    <div class="form-container-center shadow">
+        <div class="title">
+            SIGN IN TO TASTYSOFT
+        </div>
+        <div class="form-group my-2">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="jake@example.com"
+                    [(ngModel)]="signinForm.email" required #email="ngModel"
+                    [ngClass]="{ 'is-invalid': signinFormSubmitted && email.invalid }" (keyup.enter)="signIn()">
+
+                <div class="invalid-feedback"
+                    *ngIf="email.invalid || (email.dirty || email.touched) && signinFormSubmitted">
+                    <div *ngIf="email.errors?.required">
+                        {{allinoneService.input_err_msg}}
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="*********"
+                    [(ngModel)]="signinForm.password" required #password="ngModel"
+                    [ngClass]="{ 'is-invalid': signinFormSubmitted && password.invalid }" (keyup.enter)="signIn()">
+
+                <div class="invalid-feedback"
+                    *ngIf="password.invalid || (password.dirty || password.touched) && signinFormSubmitted">
+                    <div *ngIf="password.errors?.required">
+                        {{allinoneService.input_err_msg}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "mb-3">
+            <app-loading-button [isLoading]="isStillSigningIn" [button_text]="'Sign In'" (click)="signIn()"
+                [load_button_text]="'Signing in'" [width]="'100'">
+            </app-loading-button>
+        </div>
+        <div>
+            Doesn't have an account? <span class = "text-btn" (click) = "signup()">Sign up</span>
+        </div>
+    </div>
+</div>

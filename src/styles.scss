@@ -1,0 +1,184 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "~@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$Tastysoft-primary: mat.define-palette(mat.$indigo-palette);
+$Tastysoft-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$Tastysoft-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$Tastysoft-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $Tastysoft-primary,
+      accent: $Tastysoft-accent,
+      warn: $Tastysoft-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($Tastysoft-theme);
+
+// Custom font
+@font-face {
+  font-family: "Google";
+  src: url('./assets/fonts/ProductSansRegular.ttf') format("opentype");
+}
+
+:root {
+  --main-color: #2f5d62;
+  --button-color: #5e8b7e;
+  --input-diabled-color: #a7c4bc;
+  --border-color: #a7c4bc66;
+}
+
+select:focus,
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.btn:focus,
+.uneditable-input:focus {
+  border-color: var(--main-color) !important;
+  box-shadow: 0 1px 1px rgba(221, 219, 219, 0.075) inset,
+    0 0 8px rgba(243, 242, 242, 0.6) !important;
+  outline: 0 none !important;
+}
+
+.form-select:disabled,
+input[type="text"]:disabled,
+input[type="password"]:disabled,
+input[type="datetime"]:disabled,
+input[type="datetime-local"]:disabled,
+input[type="date"]:disabled,
+input[type="month"]:disabled,
+input[type="time"]:disabled,
+input[type="week"]:disabled,
+input[type="number"]:disabled,
+input[type="email"]:disabled,
+input[type="url"]:disabled,
+input[type="search"]:disabled,
+input[type="tel"]:disabled,
+input[type="color"]:disabled {
+  background-color: var(-input-diabled-color) !important;
+  color: #000000ad;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Google" !important;
+  font-weight: 300;
+}
+
+::placeholder {
+  color: rgb(190, 187, 187) !important;
+  opacity: 0.5;
+}
+
+.form-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.form-container-center {
+  width: 400px;
+  border-radius: 5px;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.btn-custom {
+  color: white !important;
+  background-color: var(--button-color) !important;
+  &:hover {
+    background-color: var(--main-color) !important;
+  }
+}
+
+.text-btn {
+  font-weight: bold;
+  color: var(--button-color);
+  &:hover {
+    cursor: pointer;
+    color: var(--main-color);
+  }
+}
+
+.signinup {
+  width: 100%;
+}
+
+.snackbar {
+  font-size: 16px;
+  min-height: 60px !important;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  letter-spacing: 0.2px;
+  z-index: 1000;
+  display: flex !important;
+  align-items: center;
+}
+
+.snackbar-success {
+  color: #28a745 !important;
+}
+
+.snackbar-warn {
+  color: #dc3545 !important;
+}
+
+.nodata{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.table-header{
+  background-color: var(--main-color);
+  color: white;
+}
+
+td{
+  vertical-align: middle;
+}
+
+.spinner-border{
+  color: var(--main-color);
+}
